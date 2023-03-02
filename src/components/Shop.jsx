@@ -23,16 +23,7 @@ const Shop = () => {
         }
         setCart(newCart)
         addToDb(item.id)
-        toast.success('🦄 Wow so easy!', {
-            position: "top-center",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-            });
+        toast.success('product added',{autoClose: 500})
     }
     return (
             <div className=' bg-sky-50 p-10 mx-auto grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center gap-8 text-center'>

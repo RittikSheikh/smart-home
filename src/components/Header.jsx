@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import Lottie from "lottie-react";
 import logo from '../assets/logo.json';
 import { Link } from 'react-router-dom';
+import { CartContext } from '../layouts/Main';
 
 const Header = () => {
+	const [cart,setCart] = useContext(CartContext)
 	const [isMenuOpen, setIsMenuOpen] = useState(false)
 	return (
 	  <div className='px-4 py-5 lg:w-full sm:max-w-xl md:max-w-full bg-sky-500  md:px-24 lg:px-8'>
@@ -49,7 +51,7 @@ const Header = () => {
 			  >
 				<div className='relative py-3'>
 				  <p>Cart</p>
-				  {/* <p className='absolute bottom-5 left-9'>{cart.length}</p> */}
+				  <p className='absolute bottom-5 left-9'><span className='text-white'>{cart.length}</span></p>
 				</div>
 			  </Link>
 			</li>
