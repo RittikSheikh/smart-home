@@ -8,8 +8,9 @@ const Header = () => {
 	const [cart,setCart] = useContext(CartContext)
 	const [isMenuOpen, setIsMenuOpen] = useState(false)
 	return (
-	  <div className='px-4 py-5 lg:w-full sm:max-w-xl md:max-w-full bg-sky-500  md:px-24 lg:px-8'>
-		<div className='relative flex items-center justify-between'>
+	  <div className=''>
+		<div className='px-4 py-5 lg:w-full sm:max-w-xl md:max-w-full top-0 bg-sky-500 md:px-24 lg:px-8'>
+		<div className='relative flex items-center justify-between top-2'>
 		  <Link
 			to='/'
 			aria-label='Smart Home'
@@ -172,6 +173,7 @@ const Header = () => {
 			)}
 		  </div>
 		</div>
+	  </div>
 	  </div>
 	)
 };

@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { CartContext } from '../layouts/Main';
 import { deleteShoppingCart, removeFromDb } from '../utilites/FakeDb';
@@ -26,6 +27,11 @@ const Cart = () => {
             }
         }
 
+        let total = 0;
+        for(const item of cart){
+            total = total + (item.price * item.quantity)
+        }
+
     return (
         <div className="flex flex-col max-w-3xl p-6 space-y-4 my-3 rounded-sm mx-auto sm:p-10 dark:bg-sky-300 dark:text-gray-100">
 	<h2 className="text-xl font-semibold">Your cart</h2>
@@ -36,17 +42,17 @@ const Cart = () => {
 	</ul>
 	<div className="space-y-1 text-right">
 		<p>Total amount:
-			<span className="font-semibold">357 €</span>
+			<span className="font-semibold">${total.toFixed(2)}</span>
 		</p>
 		<p className="text-sm dark:text-gray-400">Not including taxes and shipping costs</p>
 	</div>
 	<div className="flex justify-end space-x-4">
 		<button type="button" className="px-6 py-2 border rounded-md bg-blue-400 dark:border-sky-400">Back
-			<span className="sr-only sm:not-sr-only"> to shop</span>
+			<span className="sr-only sm:not-sr-only"> <Link to={'/shop'}>to shop</Link> </span>
 		</button>
-		<button onClick={placeOrder} type="button" className="px-6 py-2 border-gray-400 rounded-md dark:bg-green-400 dark:text-gray-900">
-			<span className="sr-only sm:not-sr-only text-white">Place Order</span>
-		</button>
+        <button onClick={placeOrder} type='button' className='px-3 py-2 rounded-md bg-green-400' >
+            Place Order
+        </button>
 	</div>
 </div>
     );
